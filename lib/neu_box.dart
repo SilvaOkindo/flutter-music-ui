@@ -1,14 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NeuBox extends StatelessWidget {
-  const NeuBox({Key? key}) : super(key: key);
+  final child;
+  const NeuBox({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      width: 100,
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.grey[300],
         borderRadius: BorderRadius.circular(12),
@@ -16,17 +15,18 @@ class NeuBox extends StatelessWidget {
           // darker shadow on the bottom
           BoxShadow(
             color: Colors.grey.shade500,
-            offset: Offset(5, 5),
+            offset: const Offset(5, 5),
             blurRadius: 15
           ),
           // lighter shadow on the top
-          BoxShadow(
+          const BoxShadow(
               color: Colors.white,
               offset: Offset(-5, -5),
               blurRadius: 15
           )
         ]
       ),
+      child: Center(child: child,),
     );
   }
 }
